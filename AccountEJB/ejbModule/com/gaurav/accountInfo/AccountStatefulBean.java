@@ -7,16 +7,12 @@ import javax.interceptor.Interceptors;
 
 import com.gaurav.Interceptor.SimpleInterceptor;
 
-/**
- * Session Bean implementation class AccountStatelessBean
- */
-
 @Stateless(mappedName="Account")
 @Interceptors(SimpleInterceptor.class)
 public class AccountStatefulBean implements AccountStatefulBeanRemote, AccountStatefulBeanLocal {
 
 	public int total=1000;
-	
+
 	@PostActivate
 	public void name()
 	{
@@ -30,7 +26,7 @@ public class AccountStatefulBean implements AccountStatefulBeanRemote, AccountSt
 	public void deposit(int amt) {
 		total=total+amt;
 		System.out.println("Total balance after deposit : " + total);
-		
+
 	}
 
 	@Override
